@@ -1,0 +1,10 @@
+version: '3.8'
+services:
+  todotriage:
+    build: .
+    container_name: todotriage
+    volumes: # ホストPCから編集しつつUbuntu上で実行できる
+      - ./app:/app
+    ports:
+      - "5173:5173"
+    tty: true
