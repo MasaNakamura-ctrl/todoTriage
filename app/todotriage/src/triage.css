@@ -29,3 +29,13 @@ button:hover{
     margin-top: 0;
     font-weight: bold;
 }
+
+.input-area {
+    background-color: #D0D8DA;
+    border: 1px solid #40403E;
+    width: 400px;
+    height: 30px;
+    padding: 8px;
+    margin: 8px;
+    border-radius: 8px;
+}
