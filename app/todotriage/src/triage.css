@@ -65,7 +65,7 @@ button:hover{
 .task-area-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 16px; /* お好みで調整 */
+    gap: 16px;
 }
 
 .list-row {
