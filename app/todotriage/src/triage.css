@@ -39,3 +39,40 @@ button:hover{
     margin: 8px;
     border-radius: 8px;
 }
+
+.task-area {
+    background-color: #F0F2F1;
+    border: 2px solid #40403E;
+    width: 400px;
+    height: 200px;
+    padding: 8px;
+    margin: 8px;
+    border-radius: 8px;
+}
+
+.red-task {
+    border: 2px solid red;
+}
+
+.yellow-task {
+    border: 2px solid #FAC61E;
+}
+
+.green-task {
+    border: 2px solid green;
+}
+
+.task-area-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px; /* お好みで調整 */
+}
+
+.list-row {
+    display: flex;
+    align-items: center;
+}
+
+.todo-item {
+    margin: 6px;
+}

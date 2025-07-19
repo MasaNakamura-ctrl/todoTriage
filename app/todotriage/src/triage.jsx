@@ -10,45 +10,55 @@ export const Triage = () =>{
                 <input placeholder="Input Tasks"></input>
                 <button>Add</button>
             </div>
-            <div>
-                <p>Red Task</p>
-                <ul>
-                    <li>
-                        <p>This is Task</p>
-                        <button>End</button>
-                        <button>Yellow</button>
-                    </li>
-                </ul>
-            </div>
-            <div>
-                <p>Yellow Task</p>
-                <ul>
-                    <li>
-                        <p>This is Task</p>
-                        <button>End</button>
-                        <button>Green</button>
-                    </li>
-                </ul>
-            </div>
-            <div>
-                <p>Green Task</p>
-                <ul>
-                    <li>
-                        <p>This is Task</p>
-                        <button>End</button>
-                        <button>Black</button>
-                    </li>
-                </ul>
-            </div>
-            <div>
-                <p>Black Task</p>
-                <ul>
-                    <li>
-                        <p>This is Task</p>
-                        <button>End</button>
-                        <button>Red</button>
-                    </li>
-                </ul>
+            <div className="task-area-container">
+                <div className="task-area red-task">
+                    <p>Immediate</p>
+                    <ul>
+                        <li>
+                            <div className="list-row">
+                                <p className="todo-item">This is Task</p>
+                                <button>End</button>
+                                <button>Yellow</button>
+                            </div>
+                            </li>
+                    </ul>
+                </div>
+                <div className="task-area yellow-task">
+                    <p>Delayed</p>
+                    <ul>
+                        <li>
+                            <div className="list-row">
+                                <p className="todo-item">This is Task</p>
+                                <button>End</button>
+                                <button>Green</button>
+                            </div>
+                            </li>
+                    </ul>
+                </div>
+                <div className="task-area green-task">
+                    <p>Minor</p>
+                    <ul>
+                        <li>
+                            <div className="list-row">
+                                <p className="todo-item">This is Task</p>
+                                <button>End</button>
+                                <button>Black</button>
+                            </div>
+                            </li>
+                    </ul>
+                </div>
+                <div className="task-area">
+                    <p>Reschedule</p>
+                    <ul>
+                        <li>
+                            <div className="list-row">
+                                <p className="todo-item">This is Task</p>
+                                <button>End</button>
+                                <button>Red</button>
+                            </div>
+                            </li>
+                    </ul>
+                </div>
             </div>
         </>
 
