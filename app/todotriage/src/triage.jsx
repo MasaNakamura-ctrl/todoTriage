@@ -1,6 +1,15 @@
+import { useState } from "react";
 import "./triage.css";
 
 export const Triage = () =>{
+    const [immediateTasks, setImmediateTasks] = useState(["This is Task"]);
+    const [delayedTasks, setDelayedTasks] = useState(["This is Task"]);
+    const [minorTasks, setMinorTasks] = useState(["This is Task"]);
+    const [rescheduleTasks, setRescheduleTasks] = useState(["This is Task"]);
+
+    const handleAddTask = (task) => {
+        setImmediateTasks([...immediateTasks, task]);
+    }
     return(
         <>
             <div className="Title">
@@ -14,49 +23,64 @@ export const Triage = () =>{
                 <div className="task-area red-task">
                     <p>Immediate</p>
                     <ul>
-                        <li>
-                            <div className="list-row">
-                                <p className="todo-item">This is Task</p>
-                                <button>End</button>
-                                <button>Yellow</button>
-                            </div>
-                            </li>
+                        {immediateTasks.map((immediate, index) => {
+                            return(
+                                <li key={index}>
+                                    <div className="list-row">
+                                        <p className="todo-item">{immediate}</p>
+                                        <button>End</button>
+                                        <button>Yellow</button>
+                                    </div>
+                                </li>
+                            );
+                        })}
                     </ul>
                 </div>
                 <div className="task-area yellow-task">
                     <p>Delayed</p>
                     <ul>
-                        <li>
-                            <div className="list-row">
-                                <p className="todo-item">This is Task</p>
-                                <button>End</button>
-                                <button>Green</button>
-                            </div>
-                            </li>
+                    {immediateTasks.map((minor, index) => {
+                        return(
+                            <li key={index}>
+                                <div className="list-row">
+                                    <p className="todo-item">{minor}</p>
+                                    <button>End</button>
+                                    <button>Green</button>
+                                </div>                                </li>
+                            );
+                        })}
                     </ul>
                 </div>
                 <div className="task-area green-task">
                     <p>Minor</p>
                     <ul>
-                        <li>
-                            <div className="list-row">
-                                <p className="todo-item">This is Task</p>
-                                <button>End</button>
-                                <button>Black</button>
-                            </div>
-                            </li>
+                    {immediateTasks.map((delayed, index) => {
+                            return(
+                                <li key={index}>
+                                    <div className="list-row">
+                                        <p className="todo-item">{delayed}</p>
+                                        <button>End</button>
+                                        <button>Black</button>
+                                    </div>
+                                </li>
+                            );
+                        })}
                     </ul>
                 </div>
                 <div className="task-area">
                     <p>Reschedule</p>
                     <ul>
-                        <li>
-                            <div className="list-row">
-                                <p className="todo-item">This is Task</p>
-                                <button>End</button>
-                                <button>Red</button>
-                            </div>
-                            </li>
+                        {immediateTasks.map((reschedule, index) => {
+                            return(
+                                <li key={index}>
+                                    <div className="list-row">
+                                        <p className="todo-item">{reschedule}</p>
+                                        <button>End</button>
+                                        <button>Red</button>
+                                    </div>
+                                </li>
+                            );
+                        })}
                     </ul>
                 </div>
             </div>
