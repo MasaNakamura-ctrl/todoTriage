@@ -6,17 +6,16 @@ export const Triage = () =>{
     const [delayedTasks, setDelayedTasks] = useState(["This is Task"]);
     const [minorTasks, setMinorTasks] = useState(["This is Task"]);
     const [rescheduleTasks, setRescheduleTasks] = useState(["This is Task"]);
-
-    const handleAddTask = (task) => {
-        setImmediateTasks([...immediateTasks, task]);
-    }
+    const [task, setTask] = useState("");
+    const onChangeTodo = (event) => setTask(event.target.value);
+    
     return(
         <>
             <div className="Title">
                 <h1>ToDoTriage</h1>
             </div>
             <div className="input-area">
-                <input placeholder="Input Tasks"></input>
+                <input placeholder="Input Tasks" value={task} onChange={onChangeTodo}></input>
                 <button>Add</button>
             </div>
             <div className="task-area-container">
