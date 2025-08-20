@@ -18,11 +18,11 @@ export const Triage = () =>{
         setTaskArray(newTasks);
     }
     const onClickMove = (index, priorityTask, setPriorityTask, nextStage, setNextStage) => {
-        const newPriotrity = [...priorityTask];
-        newPriotrity.splice(index, 1);
+        const newPriority = [...priorityTask];
+        newPriority.splice(index, 1);
 
         const newNextStage = [...nextStage, priorityTask[index]];
-        setPriorityTask(newPriotrity);
+        setPriorityTask(newPriority);
         setNextStage(newNextStage);
     }
     return(
