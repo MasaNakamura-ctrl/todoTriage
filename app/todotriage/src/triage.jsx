@@ -2,10 +2,10 @@ import { useState } from "react";
 import "./triage.css";
 
 export const Triage = () =>{
-    const [immediateTasks, setImmediateTasks] = useState(["This is Task"]);
-    const [delayedTasks, setDelayedTasks] = useState(["This is Task"]);
-    const [minorTasks, setMinorTasks] = useState(["This is Task"]);
-    const [rescheduleTasks, setRescheduleTasks] = useState(["This is Task"]);
+    const [immediateTasks, setImmediateTasks] = useState([]);
+    const [delayedTasks, setDelayedTasks] = useState([]);
+    const [minorTasks, setMinorTasks] = useState([]);
+    const [rescheduleTasks, setRescheduleTasks] = useState([]);
     const [task, setTask] = useState("");
     const onChangeTodo = (event) => setTask(event.target.value);
     const onClickAdd = () => {
@@ -16,6 +16,14 @@ export const Triage = () =>{
         const newTasks = [...taskArray];
         newTasks.splice(index, 1);
         setTaskArray(newTasks);
+    }
+    const onClickMove = (index, priorityTask, setPriorityTask, nextStage, setNextStage) => {
+        const newPriotrity = [...priorityTask];
+        newPriotrity.splice(index, 1);
+
+        const newNextStage = [...nextStage, priorityTask[index]];
+        setPriorityTask(newPriotrity);
+        setNextStage(newNextStage);
     }
     return(
         <>
@@ -36,7 +44,7 @@ export const Triage = () =>{
                                     <div className="list-row">
                                         <p className="todo-item">{immediate}</p>
                                         <button onClick={() => onClickEnd(index, immediateTasks, setImmediateTasks)}>End</button>
-                                        <button>Yellow</button>
+                                        <button onClick={() => onClickMove(index, immediateTasks, setImmediateTasks, delayedTasks, setDelayedTasks)}>Yellow</button>
                                     </div>
                                 </li>
                             );
@@ -52,7 +60,7 @@ export const Triage = () =>{
                                     <div className="list-row">
                                         <p className="todo-item">{minor}</p>
                                         <button onClick={() => onClickEnd(index, delayedTasks, setDelayedTasks)}>End</button>
-                                        <button>Green</button>
+                                        <button onClick={() => onClickMove(index, delayedTasks, setDelayedTasks, minorTasks, setMinorTasks)}>Green</button>
                                     </div>
                                 </li>
                             );
@@ -68,7 +76,7 @@ export const Triage = () =>{
                                     <div className="list-row">
                                         <p className="todo-item">{delayed}</p>
                                         <button onClick={() => onClickEnd(index, minorTasks, setMinorTasks)}>End</button>
-                                        <button>Black</button>
+                                        <button onClick={() => onClickMove(index, minorTasks, setMinorTasks, rescheduleTasks, setRescheduleTasks)}>Black</button>
                                     </div>
                                 </li>                                );
                         })}
@@ -83,7 +91,7 @@ export const Triage = () =>{
                                     <div className="list-row">
                                         <p className="todo-item">{reschedule}</p>
                                         <button onClick={() => onClickEnd(index, rescheduleTasks, setRescheduleTasks)}>End</button>
-                                        <button>Red</button>
+                                        <button onClick={() => onClickMove(index, rescheduleTasks, setRescheduleTasks, immediateTasks, setImmediateTasks)}>Red</button>
                                     </div>
                                 </li>
                             );
